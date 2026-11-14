@@ -1,3 +1,17 @@
+/* Animated brand entrance — show once per tab session, never block navigation. */
+(function(){
+ const intro=document.getElementById('ds-intro');if(!intro)return;
+ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+ let seen=false;try{seen=sessionStorage.getItem('ds-intro-seen')==='1'}catch(_){}
+ if(seen||reduce||location.pathname!=='/'||location.hash){intro.remove();return}
+ document.body.classList.add('ds-intro-active');
+ let closed=false;
+ function enter(){if(closed)return;closed=true;try{sessionStorage.setItem('ds-intro-seen','1')}catch(_){}intro.classList.add('is-exiting');document.body.classList.remove('ds-intro-active');setTimeout(()=>intro.remove(),900)}
+ document.getElementById('ds-intro-enter')?.addEventListener('click',enter);
+ intro.addEventListener('keydown',e=>{if(e.key==='Escape'||e.key==='Enter'){e.preventDefault();enter()}});
+ intro.tabIndex=-1;intro.focus({preventScroll:true});
+ setTimeout(enter,4400);
+})();
 const $=s=>document.querySelector(s);
 let bag=[];try{const stored=JSON.parse(localStorage.getItem('dreamstate-bag')||'[]');if(Array.isArray(stored))bag=stored.filter(x=>['XS','S','M','L','XL'].includes(x.size)).slice(0,100)}catch{}
 const save=()=>{localStorage.setItem('dreamstate-bag',JSON.stringify(bag));renderBag()};
