@@ -448,3 +448,10 @@ html body.storefront .store-video-copy{bottom:9%!important}
 html body.storefront .store-video-copy a{background:transparent!important;color:#fff!important;border:1px solid #fff!important;padding:15px 23px!important;transition:background .2s,color .2s}
 html body.storefront .store-video-copy a:hover{background:#fff!important;color:#111!important}
 @media(max-width:900px){html body.storefront .store-header-left nav.open{background:var(--ds-indigo)!important;box-shadow:0 12px 22px #0004!important}}
+
+/* MENES-inspired restrained typography across DREAMSTATE.
+   System Helvetica/Arial stack; no third-party proprietary font files. */
+html body.storefront,html body.storefront button,html body.storefront input,html body.storefront select,html body.storefront textarea{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important}
+html body.storefront h1,html body.storefront h2,html body.storefront h3,html body.storefront h4,html body.storefront h5,html body.storefront h6,html body.storefront .ds-radio-deck strong,html body.storefront .ds-radio-side>span,html body.storefront .store-footer h2{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;font-weight:600!important;letter-spacing:-.035em!important}
+html body.storefront .store-header nav a,html body.storefront .store-actions button,html body.storefront .store-actions select,html body.storefront .store-section-heading span,html body.storefront .store-product-details,html body.storefront .ds-track,html body.storefront .store-video-copy a{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;font-weight:500!important;letter-spacing:.035em!important}
+html body.storefront .store-logo img{font-family:initial!important}
