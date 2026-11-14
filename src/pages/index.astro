@@ -92,6 +92,31 @@ import Base from '../layouts/Base.astro';
 .ds-radio .ds-sc-player p{font-size:11px;color:#aaa;line-height:1.7;margin:0}
 .ds-radio .ds-sc-player iframe{width:100%;height:166px;border:0;background:#111}
 .ds-radio .ds-soundcloud>a{display:block;text-align:center;padding:15px 12px;font-size:10px;letter-spacing:.08em;background:#eee;color:#111;font-weight:700}
+
+/* DREAMSTATE Radio: restrained compact editorial layout */
+.ds-radio{padding:30px 5% 54px!important}
+.ds-radio .ds-radio-top{font-size:9px!important;padding-bottom:13px!important}
+.ds-radio .ds-radio-main{padding:34px 0 38px!important}
+.ds-radio .ds-radio-art{grid-template-columns:minmax(0,390px) minmax(0,1fr)!important;gap:clamp(28px,5vw,72px)!important;max-width:1060px!important;margin:0 auto!important}
+.ds-radio .ds-turntable{max-width:365px!important;border-radius:7px!important;box-shadow:inset 0 0 0 4px #141414,0 16px 30px #0008!important}
+.ds-radio .ds-radio-deck{gap:9px!important}
+.ds-radio .ds-radio-deck>span{font-size:9px!important}
+.ds-radio .ds-radio-deck strong{font-size:clamp(28px,3.5vw,50px)!important;line-height:1.04!important;letter-spacing:-.04em!important}
+.ds-radio .ds-radio-deck small{font-size:10px!important}
+.ds-radio .ds-radio-indicator{font-size:9px!important;margin-top:12px!important}
+.ds-radio .ds-radio-tracks{grid-template-columns:minmax(0,1.55fr) minmax(0,.75fr)!important;gap:clamp(28px,5vw,70px)!important;max-width:1100px!important;margin:0 auto!important}
+.ds-radio .ds-track{grid-template-columns:27px minmax(0,1fr) 112px 14px!important;min-height:49px!important;padding:11px 10px!important;gap:10px!important}
+.ds-radio .ds-track strong{font-size:12px!important;font-weight:600!important;line-height:1.3!important}
+.ds-radio .ds-track span:nth-of-type(2){font-size:9px!important}
+.ds-radio .ds-radio-side{gap:13px!important;padding-top:8px!important;max-width:300px!important}
+.ds-radio .ds-radio-side>span{font-size:clamp(25px,2.7vw,37px)!important;line-height:1.04!important}
+.ds-radio .ds-radio-side p{font-size:11px!important;line-height:1.6!important}
+.ds-radio .ds-soundcloud{gap:10px!important;padding-top:13px!important}
+.ds-radio .ds-sc-player{min-height:65px!important;padding:11px!important}
+.ds-radio .ds-sc-player p{font-size:10px!important}
+.ds-radio .ds-soundcloud>a{padding:11px 12px!important;font-size:9px!important}
+@media(max-width:900px){.ds-radio .ds-radio-tracks{grid-template-columns:minmax(0,1fr)!important}.ds-radio .ds-radio-side{max-width:none!important}}
+@media(max-width:650px){.ds-radio{padding:24px 5% 42px!important}.ds-radio .ds-radio-main{padding:28px 0!important}.ds-radio .ds-radio-art{grid-template-columns:minmax(0,1fr)!important;gap:25px!important}.ds-radio .ds-turntable{max-width:285px!important}.ds-radio .ds-radio-deck strong{font-size:34px!important}.ds-radio .ds-radio-tracks{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}.ds-radio .ds-track{grid-template-columns:22px minmax(0,1fr) 70px 12px!important;padding:11px 5px!important;gap:6px!important}.ds-radio .ds-track strong{font-size:11px!important}.ds-radio .ds-radio-side{display:flex!important;flex-direction:column!important}.ds-radio .ds-radio-side>span{font-size:28px!important}}
 </style>
 <section class="store-video-hero"><video class="ds-hero-video ds-hero-desktop" autoplay muted loop playsinline preload="metadata" poster="/jeans.svg"><source src="/IMG_5082.mp4" type="video/mp4"/></video><video class="ds-hero-video ds-hero-mobile" autoplay muted loop playsinline preload="metadata" poster="/jeans.svg"><source src="/IMG_5082%20(1).mp4" type="video/mp4"/></video><div class="store-video-shade"></div><div class="store-video-copy"><span>DROP 001</span><h1>DS—001</h1><a href="#collection">EXPLORE COLLECTION ↗</a></div></section>
 <section id="collection" class="store-collection"><div class="store-section-heading"><h2>THE COLLECTION</h2><span>001 / COMING SOON</span></div><div class="store-product-grid"><a class="store-product-card" href="/shop/ds-001"><div class="store-product-image"><span class="store-card-tag">COMING SOON</span><img class="product-primary" src="/jeans.svg" alt="DS-001 concept illustration"/><img class="product-secondary" src="/jeans.svg" alt="Alternate DS-001 image placeholder"/></div><div class="store-product-details"><strong>DS—001 RELAXED BOOTCUT JEANS</strong><span>PRICE TBA</span></div><p>UNISEX / DROP 001</p></a></div><p class="store-product-note">Product photography, alternate hover image and prices will be added before launch.</p><p class="store-discount-note">REGISTERED CUSTOMERS: 15% OFF YOUR FIRST ORDER AT LAUNCH. ELIGIBILITY WILL BE VERIFIED AT CHECKOUT.</p></section>
