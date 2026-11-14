@@ -307,3 +307,15 @@ body.storefront .store-actions select option{background:#000;color:#fff}
 body.storefront .store-logo{color:#fff!important}
 body.storefront .store-logo img{filter:brightness(0) invert(1)}
 @media(max-width:900px){body.storefront .store-header-left nav{background:#000!important;box-shadow:0 12px 18px #0004}}
+
+/* Always-visible search at upper left */
+body.storefront .store-header-left{min-width:0;gap:19px}
+body.storefront .store-search{display:flex;align-items:center;min-width:110px;width:clamp(110px,14vw,200px);border-bottom:1px solid #777;margin:0}
+body.storefront .store-search input{background:transparent!important;color:#fff!important;border:0!important;outline:0;min-width:0;width:100%;padding:8px 0!important;font-size:11px;letter-spacing:.1em}
+body.storefront .store-search input::placeholder{color:#ccc;opacity:1}
+body.storefront .store-search button{background:transparent;color:#fff;border:0;font-size:22px;cursor:pointer;line-height:1}
+body.storefront .store-product-card[hidden]{display:none}
+.store-search-result{font-size:13px;letter-spacing:.04em;margin-top:25px}
+@media(max-width:1050px){body.storefront .store-header-left nav{gap:10px}body.storefront .store-header-left{gap:12px}body.storefront .store-search{width:120px}}
+@media(max-width:900px){body.storefront .store-header-left{gap:7px}body.storefront .store-search{width:clamp(78px,15vw,125px);min-width:0}}
+@media(max-width:600px){body.storefront .store-search{width:78px}body.storefront .store-search input{font-size:9px}body.storefront .store-search button{font-size:17px}body.storefront .store-header{padding:0 2%!important}body.storefront .store-logo{width:clamp(105px,29vw,160px)}body.storefront .store-actions{gap:2px}}
