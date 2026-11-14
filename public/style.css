@@ -438,3 +438,13 @@ body.storefront .store-product-image{background:#e9eaf2!important}
 body.storefront .store-product-card{color:#fff!important}
 body.storefront .store-section-heading,body.storefront .store-section-heading h1{color:#fff!important}
 @media(max-width:900px){body.storefront .store-header-left nav.open{background:var(--ds-indigo)!important;box-shadow:0 15px 30px #0005}}
+
+/* Transparent navigation and logo artwork on the indigo header */
+html body.storefront .store-header-left nav{background:transparent!important;box-shadow:none!important}
+html body.storefront .store-header-left nav a{background:transparent!important;color:#fff!important}
+html body.storefront .store-logo{background:transparent!important;overflow:visible!important}
+html body.storefront header.store-header a.store-logo img{mix-blend-mode:screen!important;filter:grayscale(1) contrast(5) brightness(1.6)!important;background:transparent!important}
+html body.storefront .store-video-copy{bottom:9%!important}
+html body.storefront .store-video-copy a{background:transparent!important;color:#fff!important;border:1px solid #fff!important;padding:15px 23px!important;transition:background .2s,color .2s}
+html body.storefront .store-video-copy a:hover{background:#fff!important;color:#111!important}
+@media(max-width:900px){html body.storefront .store-header-left nav.open{background:var(--ds-indigo)!important;box-shadow:0 12px 22px #0004!important}}
