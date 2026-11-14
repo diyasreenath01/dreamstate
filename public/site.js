@@ -22,3 +22,14 @@ $('#product-info-close')?.addEventListener('click',()=>$('#product-info-dialog')
 $('#store-language')?.addEventListener('change',e=>{e.target.value='en'});
 $('#store-currency')?.addEventListener('change',e=>{document.querySelectorAll('.store-currency-note').forEach(x=>x.remove());const note=document.createElement('div');note.className='store-currency-note';note.textContent='Currency display is a preview. Live exchange rates and prices are not configured.';note.setAttribute('role','status');document.querySelector('.store-actions')?.append(note)});
 const heroVideo=document.querySelector('.ds-hero-video');if(heroVideo&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)heroVideo.pause();
+
+/* Small product catalogue search */
+const searchInput=$('#store-search-input');const searchQuery=new URLSearchParams(location.search).get('q')||'';
+if(searchInput&&searchQuery)searchInput.value=searchQuery;
+if(location.pathname.replace(/\/$/,'')==='/shop'&&searchQuery.trim()){
+ const matches=/ds[\s-]*0*1|jean|denim|bootcut|relaxed|pant|trouser|dreamstate/i.test(searchQuery.trim());
+ document.querySelectorAll('.store-product-card').forEach(card=>card.hidden=!matches);
+ const heading=document.querySelector('.store-section-heading h1');if(heading)heading.textContent='SEARCH RESULTS';
+ const note=document.createElement('p');note.className='store-search-result';note.textContent=matches?'RESULTS FOR “'+searchQuery+'”':'NO PRODUCTS FOUND FOR “'+searchQuery+'”';
+ document.querySelector('.store-product-grid')?.after(note);
+}
