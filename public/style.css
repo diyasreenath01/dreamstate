@@ -68,3 +68,51 @@ body{background:#11101d}
 #signup-message{min-height:20px;color:#f4e9ff}
 @media(max-width:750px){.drop-hero{min-height:calc(100svh - 100px);padding:20px 4%}.drop-composition{padding-top:9vh}.drop-kicker{font-size:8px;letter-spacing:.24em}.drop-wordmark{font-size:13.7vw;letter-spacing:-.11em}.drop-centerpiece{height:40vh;width:100%;margin-top:10px}.drop-centerpiece img{max-width:80%}.orbit-label{font-size:8px}.label-left{left:0;top:70%}.label-right{right:0;top:70%}.drop-topline,.drop-footer{font-size:8px}.drop-bottom p{font-size:9px;letter-spacing:.08em}.drop-section{padding:75px 5%}.drop-section-heading{display:block}.drop-section-heading p{margin-top:25px}.drop-editorial-grid{grid-template-columns:1fr}.drop-editorial-art{min-height:480px}.drop-editorial-copy{padding:55px 30px}.dream-manifesto{padding:90px 4%}.dream-waitlist{padding:95px 4%}.dream-waitlist button{padding:0 10px;font-size:9px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+
+/* Minimal denim storefront, DREAMSTATE v3 */
+body:has(.menes-home){background:#fff;color:#171717}
+body:has(.menes-home) .announcement{background:#171717;color:#fff;padding:10px;font-size:10px;letter-spacing:.12em}
+body:has(.menes-home) .nav{background:#fff;border-bottom:1px solid #e9e9e9;color:#111;height:70px}
+body:has(.menes-home) .wordmark{font-size:27px;letter-spacing:-.08em}
+body:has(.menes-home) .nav nav a,body:has(.menes-home) .nav-right button{font-size:11px;letter-spacing:.08em}
+body:has(.menes-home) footer{background:#f5f5f4;color:#111}
+body:has(.menes-home) footer .footer-bottom{border-color:#d6d6d6;color:#666}
+.menes-home{font-family:'DM Sans',sans-serif;color:#181818;background:#fff}
+.menes-hero{padding:0 0 60px}
+.menes-hero-image{min-height:650px;height:75svh;max-height:850px;background:linear-gradient(105deg,#d6d4d2 0%,#bab9ba 47%,#9b9a9e 100%);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.menes-hero-image:before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#0005,transparent 55%)}
+.menes-hero-image>img{height:88%;max-width:58%;object-fit:contain;filter:drop-shadow(25px 25px 25px #0004);transition:transform .8s}
+.menes-hero-image:hover>img{transform:scale(1.025)}
+.menes-hero-copy{position:absolute;bottom:10%;left:6%;color:#fff;text-shadow:0 1px 15px #0003}
+.menes-hero-copy>span,.menes-overline{font-size:11px;letter-spacing:.13em}
+.menes-hero-copy h1{font:600 clamp(85px,13vw,190px)/.9 'Space Grotesk';letter-spacing:-.08em;margin:20px 0 12px}
+.menes-hero-copy p{font-size:13px;letter-spacing:.12em;margin:0 0 30px}
+.menes-hero-copy a{display:inline-flex;gap:35px;background:#fff;color:#111;padding:18px 23px;font-size:11px;font-weight:700;letter-spacing:.08em;text-shadow:none;transition:background .2s}
+.menes-hero-copy a:hover{background:#ddd}
+.menes-arrivals{padding:40px 5% 110px}
+.menes-section-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+.menes-section-title h2{font-size:25px;letter-spacing:-.03em;font-weight:600;margin:0}
+.menes-section-title a{font-size:11px;text-decoration:underline;text-underline-offset:4px}
+.menes-products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.menes-photo{height:650px;max-height:65vw;background:#ecebea;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.menes-photo.secondary{background:#dad8d6}
+.menes-photo img{height:84%;width:65%;object-fit:contain;transition:transform .55s}
+.menes-product:hover .menes-photo img{transform:scale(1.045)}
+.menes-tag{position:absolute;top:20px;left:20px;font-size:10px;letter-spacing:.1em;z-index:1}
+.menes-product-label{display:flex;justify-content:space-between;gap:15px;font-size:12px;padding:16px 2px}
+.menes-disclaimer{color:#777;font-size:11px;margin-top:24px}
+.menes-story{min-height:530px;background:#e7e5e2;display:flex;align-items:center;padding:90px 9%}
+.menes-story>div{max-width:730px}
+.menes-story h2{font:600 clamp(60px,8vw,130px)/.92 'Space Grotesk';letter-spacing:-.075em;margin:25px 0}
+.menes-story p{font-size:15px;line-height:1.8;max-width:490px;color:#484848}
+.menes-story a{display:inline-block;font-size:11px;border-bottom:1px solid;margin-top:28px;padding-bottom:8px}
+.menes-newsletter{text-align:center;padding:115px 5%;background:#fff}
+.menes-newsletter h2{font-size:34px;letter-spacing:-.04em;margin:0}
+.menes-newsletter p{font-size:13px;color:#555}
+.menes-newsletter form{display:flex;max-width:520px;margin:30px auto 14px}
+.menes-newsletter input{flex:1;min-width:0;padding:17px;border:1px solid #bbb;background:#fff;color:#111}
+.menes-newsletter button{padding:0 20px;background:#161616;color:#fff;border:1px solid #161616;font-size:11px}
+.menes-newsletter small{color:#888;font-size:11px}
+.menes-newsletter #signup-message{color:#555}
+@media(max-width:750px){.menes-hero-image{height:70svh;min-height:530px}.menes-hero-image>img{max-width:80%;height:72%}.menes-hero-copy{bottom:7%;left:5%}.menes-hero-copy h1{font-size:80px}.menes-hero-copy p{font-size:10px}.menes-arrivals{padding:20px 4% 70px}.menes-products{gap:10px}.menes-photo{height:310px;max-height:none}.menes-photo img{width:85%}.menes-product-label{display:block;font-size:11px;line-height:1.5}.menes-product-label span{display:block}.menes-story{padding:75px 5%;min-height:430px}.menes-newsletter{padding:80px 5%}.menes-newsletter button{padding:0 10px;font-size:9px}}
