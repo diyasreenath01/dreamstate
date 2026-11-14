@@ -167,3 +167,11 @@ body:has(.ds-home) .wordmark{font-weight:700;letter-spacing:-.085em}
 .ds-signup small{color:#988ba8;font-size:11px}
 @media(max-width:750px){.ds-cover,.ds-cover-info{min-height:75svh}.ds-cover-info{padding:24px 5% 35px}.ds-cover-info h1{font-size:13vw}.ds-jeans-wrap{left:18%;top:16%;width:65%;height:63%}.ds-disc{width:100vw;left:5%;top:20%}.disc-b{width:75vw;left:15%;top:25%}.ds-cover-bottom{align-items:flex-start;flex-direction:column;gap:10px}.ds-cover-bottom p{font-size:10px}.ds-cover-bottom a{font-size:10px;padding:16px 20px}.ds-index{padding:65px 5%}.ds-index-grid{grid-template-columns:1fr}.ds-index-image{min-height:470px}.ds-index-copy{padding:60px 8%}.ds-statement{padding:100px 5%}.ds-signup{padding:85px 5%}.ds-signup button{padding:0 15px}}
 @media(prefers-reduced-motion:reduce){.ds-home *, .ds-home *:before,.ds-home *:after{animation:none!important;transition:none!important}}
+
+
+/* Cinematic hero: video activates only when the asset is available */
+.ds-video-cover .ds-hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;opacity:0;transition:opacity .6s ease}
+.ds-video-cover.video-ready .ds-hero-video{opacity:1}
+.ds-video-cover.video-ready .ds-cover-art{opacity:0}
+.ds-video-cover .ds-cover-info{z-index:2;background:linear-gradient(90deg,#0008,transparent 75%),linear-gradient(0deg,#0008,transparent 45%)}
+@media(prefers-reduced-motion:reduce){.ds-video-cover .ds-hero-video{display:none!important}.ds-video-cover .ds-cover-art{opacity:1!important}}
