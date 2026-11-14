@@ -43,6 +43,7 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
  function apply(){
   var imgs=document.querySelectorAll('.ds-intro-logo, #ds-page-transition img, .ds-landing-logo img');
   if(!imgs.length)return;
+  imgs.forEach(function(img){img.style.visibility='hidden'});
   var source=new Image();
   source.onload=function(){
    try{
@@ -69,9 +70,10 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
     cropped.width=right-left+1;cropped.height=bottom-top+1;
     cropped.getContext('2d').drawImage(canvas,left,top,cropped.width,cropped.height,0,0,cropped.width,cropped.height);
     var transparent=cropped.toDataURL('image/png');
-    imgs.forEach(function(img){img.src=transparent;img.style.mixBlendMode='normal'});
+    imgs.forEach(function(img){img.src=transparent;img.style.mixBlendMode='normal';img.style.visibility='visible'});
    }catch(e){console.warn('DREAMSTATE logo processing:',e)}
   };
+  source.onerror=function(){imgs.forEach(function(img){img.style.visibility='visible';img.style.mixBlendMode='screen'})};
   source.src=path;
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
