@@ -319,3 +319,8 @@ body.storefront .store-product-card[hidden]{display:none}
 @media(max-width:1050px){body.storefront .store-header-left nav{gap:10px}body.storefront .store-header-left{gap:12px}body.storefront .store-search{width:120px}}
 @media(max-width:900px){body.storefront .store-header-left{gap:7px}body.storefront .store-search{width:clamp(78px,15vw,125px);min-width:0}}
 @media(max-width:600px){body.storefront .store-search{width:78px}body.storefront .store-search input{font-size:9px}body.storefront .store-search button{font-size:17px}body.storefront .store-header{padding:0 2%!important}body.storefront .store-logo{width:clamp(105px,29vw,160px)}body.storefront .store-actions{gap:2px}}
+
+/* Restore the actual uploaded logo: monochrome, background blended into black */
+body.storefront .store-logo{overflow:hidden;background:#000!important}
+body.storefront .store-logo img{width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;filter:grayscale(1) contrast(4) brightness(1.2)!important;mix-blend-mode:screen;transform:scale(1.36)}
+body.storefront .store-logo sup{display:none!important}
