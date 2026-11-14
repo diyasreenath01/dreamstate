@@ -57,7 +57,18 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
      d[i]=255;d[i+1]=255;d[i+2]=255;d[i+3]=Math.round(d[i+3]*alpha/255);
     }
     context.putImageData(pixels,0,0);
-    var transparent=canvas.toDataURL('image/png');
+    // Crop away the source image's enormous empty margins so the logo fills its frame.
+    var left=canvas.width,top=canvas.height,right=0,bottom=0;
+    for(var y=0;y<canvas.height;y++)for(var x=0;x<canvas.width;x++){
+     if(d[(y*canvas.width+x)*4+3]>18){if(x<left)left=x;if(x>right)right=x;if(y<top)top=y;if(y>bottom)bottom=y}
+    }
+    var margin=Math.max(8,Math.round(canvas.width*.025));
+    left=Math.max(0,left-margin);top=Math.max(0,top-margin);
+    right=Math.min(canvas.width-1,right+margin);bottom=Math.min(canvas.height-1,bottom+margin);
+    var cropped=document.createElement('canvas');
+    cropped.width=right-left+1;cropped.height=bottom-top+1;
+    cropped.getContext('2d').drawImage(canvas,left,top,cropped.width,cropped.height,0,0,cropped.width,cropped.height);
+    var transparent=cropped.toDataURL('image/png');
     imgs.forEach(function(img){img.src=transparent;img.style.mixBlendMode='normal'});
    }catch(e){console.warn('DREAMSTATE logo processing:',e)}
   };
