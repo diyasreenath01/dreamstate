@@ -25,7 +25,7 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 @media(max-width:650px){#ds-intro .ds-intro-logo-wrap{width:min(76vw,330px)!important}}
 @media(prefers-reduced-motion:reduce){#ds-intro .ds-intro-logo-wrap{animation:none!important}}
 </style><style is:global>
-#ds-page-transition{position:fixed;inset:0;z-index:99998;display:grid;place-items:center;background:#28058e;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .26s ease,visibility .26s ease}
+#ds-page-transition{position:fixed;inset:0;z-index:99998;display:grid;place-items:center;background:#28058e;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility .18s ease}
 #ds-page-transition.is-visible{opacity:1;visibility:visible;pointer-events:all}
 #ds-page-transition img{width:min(34vw,280px);height:auto;object-fit:contain;animation:ds-logo-spin .85s linear infinite;filter:drop-shadow(0 0 6px #00dfff55)}
 @media(max-width:650px){#ds-page-transition img{width:min(60vw,230px)}}
@@ -40,15 +40,15 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 (function(){
  var overlay=document.getElementById('ds-page-transition');if(!overlay)return;
  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- try{if(sessionStorage.getItem('ds-transition-arrival')==='1'){sessionStorage.removeItem('ds-transition-arrival');overlay.classList.add('is-visible');setTimeout(function(){overlay.classList.remove('is-visible')},reduce?100:480)}}catch(e){}
+ /* The transition runs only before navigation; never replay it on arrival. */
  document.addEventListener('click',function(e){
   if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
   var link=e.target.closest('a[href]');if(!link||link.target&&link.target!=='_self'||link.hasAttribute('download'))return;
   var url;try{url=new URL(link.href,location.href)}catch(err){return}
   if(url.origin!==location.origin||url.pathname===location.pathname&&url.search===location.search)return;
   e.preventDefault();overlay.classList.add('is-visible');
-  try{sessionStorage.setItem('ds-transition-arrival','1')}catch(err){}
-  setTimeout(function(){location.assign(url.href)},reduce?120:450);
+  
+  setTimeout(function(){location.assign(url.href)},reduce?120:420);
  });
  window.addEventListener('pageshow',function(e){if(e.persisted)overlay.classList.remove('is-visible')});
 })();
