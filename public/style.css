@@ -371,3 +371,12 @@ body.storefront .store-logo img{transform:scale(1.15)!important}
 html body.storefront header.store-header a.store-logo{width:140px!important;max-width:140px!important;height:48px!important;min-height:0!important;overflow:hidden!important;flex:none!important}
 html body.storefront header.store-header a.store-logo img{width:140px!important;max-width:140px!important;height:48px!important;object-fit:cover!important;object-position:center!important;transform:scale(1)!important;filter:grayscale(1) contrast(4) brightness(1.2)!important;mix-blend-mode:screen}
 @media(max-width:600px){html body.storefront header.store-header a.store-logo{width:105px!important;max-width:105px!important;height:40px!important}html body.storefront header.store-header a.store-logo img{width:105px!important;max-width:105px!important;height:40px!important}}
+
+/* Responsive video sources: desktop 16:9 / mobile 9:16 */
+body.storefront .store-video-hero video.ds-hero-mobile{display:none!important}
+body.storefront .store-video-hero video.ds-hero-desktop{display:block!important}
+@media(max-width:700px){
+body.storefront .store-video-hero{height:calc(100svh - 110px);min-height:520px}
+body.storefront .store-video-hero video.ds-hero-desktop{display:none!important}
+body.storefront .store-video-hero video.ds-hero-mobile{display:block!important;width:100%!important;height:100%!important;object-fit:cover!important}
+}
