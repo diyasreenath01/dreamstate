@@ -17,18 +17,41 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 @keyframes ds-orbit{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){#ds-intro .ds-intro-orbit{animation:none!important}}
 </style><style is:global>
-#ds-intro{background:#28058d!important}
+#ds-intro{background:#28058e!important}\n#ds-intro::before,#ds-intro::after{content:none!important;display:none!important}
 #ds-intro .ds-intro-logo-wrap{position:relative!important;width:min(42vw,400px)!important;display:grid!important;place-items:center!important;perspective:1000px!important;animation:ds-logo-spin 1.35s linear infinite!important}
 #ds-intro .ds-intro-logo{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;mix-blend-mode:screen!important;filter:drop-shadow(0 0 8px #00dfff55)!important}
 #ds-intro .ds-intro-enter{bottom:8%!important}
 @keyframes ds-logo-spin{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}
 @media(max-width:650px){#ds-intro .ds-intro-logo-wrap{width:min(76vw,330px)!important}}
 @media(prefers-reduced-motion:reduce){#ds-intro .ds-intro-logo-wrap{animation:none!important}}
+</style><style is:global>
+#ds-page-transition{position:fixed;inset:0;z-index:99998;display:grid;place-items:center;background:#28058e;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .26s ease,visibility .26s ease}
+#ds-page-transition.is-visible{opacity:1;visibility:visible;pointer-events:all}
+#ds-page-transition img{width:min(34vw,280px);height:auto;object-fit:contain;animation:ds-logo-spin .85s linear infinite;filter:drop-shadow(0 0 6px #00dfff55)}
+@media(max-width:650px){#ds-page-transition img{width:min(60vw,230px)}}
+@media(prefers-reduced-motion:reduce){#ds-page-transition img{animation:none}}
 </style></head><body class="storefront"><div id="ds-intro" style="display:none" class="ds-intro" aria-label="DREAMSTATE introduction"><div class="ds-intro-logo-wrap"><img class="ds-intro-logo" src="/6aff3369-24c4-4afb-91c3-5d01452daf59_removalai_preview.png" alt="DREAMSTATE" /></div><button id="ds-intro-enter" class="ds-intro-enter" type="button">ENTER SITE ↗</button></div>
+<div id="ds-page-transition" aria-hidden="true"><img src="/6aff3369-24c4-4afb-91c3-5d01452daf59_removalai_preview.png" alt="" /></div>
 <div class="promo-ribbon">SIGN UP TO GET 15% OFF YOUR FIRST ORDER <span>— OFFER AVAILABLE WHEN CHECKOUT LAUNCHES</span></div>
 <header class="store-header"><div class="store-header-left"><form class="store-search" action="/shop" method="get" role="search"><input type="search" name="q" id="store-search-input" placeholder="SEARCH" aria-label="Search products"/><button type="submit" aria-label="Search">⌕</button></form><button class="store-menu" id="menu-toggle" aria-label="Toggle navigation">☰</button><nav id="nav-links"><a href="/shop">SHOP</a><a href="/archive">ARCHIVE</a><a href="/world">ABOUT</a></nav></div><a class="store-logo" href="/" aria-label="DREAMSTATE home"><img src="/DREAMSTATE%20(6).png" alt="DREAMSTATE" /></a><div class="store-actions"><button id="cart-trigger" aria-label="Open shopping bag">BAG <span id="cart-count">(0)</span></button><label class="sr-only" for="store-language">Language</label><select id="store-language" aria-label="Language"><option value="en">EN</option></select><label class="sr-only" for="store-currency">Currency</label><select id="store-currency" aria-label="Currency"><option value="AED">AED</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></header>
 <script is:inline>
 (function(){var el=document.getElementById('ds-intro');if(!el)return;var seen=false;try{seen=sessionStorage.getItem('ds-intro-seen')==='1'}catch(e){}if(location.pathname!=='/'||location.hash||seen||matchMedia('(prefers-reduced-motion: reduce)').matches){el.remove();return}el.style.display='grid';document.body.style.overflow='hidden';var done=false;function close(){if(done)return;done=true;try{sessionStorage.setItem('ds-intro-seen','1')}catch(e){}el.classList.add('is-exiting');document.body.style.overflow='';setTimeout(function(){el.remove()},850)}el.querySelector('#ds-intro-enter').addEventListener('click',close);setTimeout(close,4200)})();
+</script><script is:inline>
+(function(){
+ var overlay=document.getElementById('ds-page-transition');if(!overlay)return;
+ var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ try{if(sessionStorage.getItem('ds-transition-arrival')==='1'){sessionStorage.removeItem('ds-transition-arrival');overlay.classList.add('is-visible');setTimeout(function(){overlay.classList.remove('is-visible')},reduce?100:480)}}catch(e){}
+ document.addEventListener('click',function(e){
+  if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+  var link=e.target.closest('a[href]');if(!link||link.target&&link.target!=='_self'||link.hasAttribute('download'))return;
+  var url;try{url=new URL(link.href,location.href)}catch(err){return}
+  if(url.origin!==location.origin||url.pathname===location.pathname&&url.search===location.search)return;
+  e.preventDefault();overlay.classList.add('is-visible');
+  try{sessionStorage.setItem('ds-transition-arrival','1')}catch(err){}
+  setTimeout(function(){location.assign(url.href)},reduce?120:450);
+ });
+ window.addEventListener('pageshow',function(e){if(e.persisted)overlay.classList.remove('is-visible')});
+})();
 </script><main><slot/></main>
 <footer class="store-footer"><div class="store-footer-grid"><div><h2>DREAMSTATE</h2><p>INDEPENDENT CLOTHING / DROP 001</p><a href="/world">OUR STORY</a></div><div><h3>HELP</h3><a href="/faq">FAQ</a><a href="/terms">TERMS OF SERVICE</a><a href="/contact">CONTACT US</a></div><div><h3>CONTACT</h3><p>Contact details will be published before launch.</p><a href="/contact">CONTACT US ↗</a></div><div><h3>EMAIL UPDATES</h3><p>Be first to know about the launch.</p><form id="signup-form"><input id="signup-email" type="email" required placeholder="Email address" aria-label="Email address"/><button type="submit">JOIN ↗</button></form><div id="signup-message" role="status"></div><small>Signup not yet connected.</small></div></div><div class="store-footer-bottom"><span>© {new Date().getFullYear()} DREAMSTATE</span><span>DROP 001</span></div></footer>
 <dialog id="bag-dialog"><div class="bag-head"><strong>YOUR BAG</strong><button id="bag-close" aria-label="Close bag">✕</button></div><div id="bag-items"></div><div class="bag-bottom"><p>Preview bag only. Orders and checkout are not available yet.</p><a href="/shop" class="btn primary" id="bag-signup">CONTINUE BROWSING ↗</a></div></dialog><script is:inline src="/site.js?v=20261114-introfix005"></script></body></html>
