@@ -54,6 +54,12 @@ import Base from '../layouts/Base.astro';
     .ds-landing-logo{width:min(52vw,260px)!important;max-width:260px!important;margin:0!important;flex-shrink:0;position:relative;z-index:3}
     .ds-landing-panel{width:min(88vw,330px)!important;padding:24px 24px 27px!important;min-height:0!important}
     @media(max-width:650px){.ds-landing-center{gap:14px!important}.ds-landing-logo{width:min(65vw,230px)!important}.ds-landing-panel{width:min(86vw,310px)!important;padding:22px 18px 25px!important}}
+    /* Static, smaller logo above the navigation box */
+    .ds-landing-center{gap:20px!important}
+    .ds-landing-logo{width:min(56vw,245px)!important;max-width:245px!important;margin:0!important;animation:none!important;transform:none!important;filter:none!important;flex-shrink:0}
+    .ds-landing-logo:hover{transform:none!important}
+    .ds-landing-panel{width:min(90vw,370px)!important;padding:24px 20px 26px!important}
+    @media(max-width:650px){.ds-landing-logo{width:min(64vw,215px)!important}.ds-landing-center{gap:16px!important}.ds-landing-panel{width:min(88vw,340px)!important}}
     @keyframes ds-home-logo-spin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
     @media(prefers-reduced-motion:reduce){.ds-landing-logo{animation:none!important}}
     @media(max-width:650px){.ds-landing-panel{width:min(90vw,370px);padding:14px 16px 24px}.ds-landing-logo{width:min(100%,340px)!important}}
