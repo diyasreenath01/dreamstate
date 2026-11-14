@@ -329,3 +329,40 @@ body.storefront .store-logo sup{display:none!important}
 body.storefront .store-video-hero .ds-hero-video{display:block!important;position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;opacity:1!important;visibility:visible!important;z-index:0!important}
 body.storefront .store-video-hero .store-video-shade{z-index:1;pointer-events:none}
 body.storefront .store-video-hero .store-video-copy{z-index:2}
+
+
+/* Compact centered logo */
+body.storefront .store-header{height:76px}
+body.storefront .store-logo{width:clamp(145px,15vw,225px)!important;height:66px!important}
+body.storefront .store-logo img{transform:scale(1.15)!important}
+@media(max-width:900px){body.storefront .store-header{height:70px}body.storefront .store-logo{width:clamp(120px,20vw,170px)!important;height:60px!important}}
+@media(max-width:600px){body.storefront .store-logo{width:clamp(100px,27vw,145px)!important;height:55px!important}}
+
+/* Minimal Japanese denim-shop inspired catalogue */
+.menes-shop{background:#fff;color:#111;padding:48px 4.2% 85px;min-height:75vh}
+.menes-shop-toolbar{display:flex;align-items:end;justify-content:space-between;border-bottom:1px solid #dedede;padding:0 0 26px;margin-bottom:38px}
+.menes-shop-toolbar>div:first-child>span{font-size:10px;color:#777;letter-spacing:.12em}
+.menes-shop-toolbar h1{font-size:clamp(26px,3vw,42px);font-weight:600;letter-spacing:-.055em;margin:14px 0 0}
+.menes-shop-tools{display:flex;align-items:center;gap:32px;font-size:10px;letter-spacing:.08em}
+.menes-shop-tools select{border:0;background:#fff;font-size:10px;letter-spacing:.08em;margin-left:8px}
+.menes-shop-layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:38px}
+.menes-shop-sidebar{display:flex;flex-direction:column;gap:0;align-self:start;position:sticky;top:30px}
+.menes-shop-sidebar h2{font-size:12px;letter-spacing:.1em;margin:4px 0 20px}
+.menes-shop-sidebar>a{font-size:11px;padding:13px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between}
+.menes-shop-sidebar>a[aria-current]{font-weight:700}
+.menes-shop-sidebar-bottom{margin-top:70px;color:#999;font-size:10px;letter-spacing:.1em;line-height:1.8}
+.menes-shop-products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-content:start}
+.menes-shop-card{min-width:0;display:block}
+.menes-shop-image{aspect-ratio:3/4;background:#f0f0f0;position:relative;display:flex;justify-content:center;align-items:center;overflow:hidden}
+.menes-shop-image img{position:absolute;width:78%;height:85%;object-fit:contain;transition:opacity .25s ease,transform .35s ease}
+.menes-shop-image .product-secondary{opacity:0}
+.menes-shop-card:hover .product-primary{opacity:0;transform:scale(1.025)}
+.menes-shop-card:hover .product-secondary{opacity:1;transform:scale(1.025)}
+.menes-shop-badge{position:absolute;z-index:2;top:14px;left:14px;background:#fff;color:#111;font-size:9px;padding:8px 10px;letter-spacing:.08em}
+.menes-shop-product-meta{display:flex;justify-content:space-between;gap:14px;padding-top:15px}
+.menes-shop-product-meta h2{font-size:12px;font-weight:600;letter-spacing:.015em;margin:0 0 8px}
+.menes-shop-product-meta p{font-size:10px;color:#888;letter-spacing:.07em;margin:0}
+.menes-shop-product-meta>span{font-size:11px;white-space:nowrap}
+.menes-shop-footnote{font-size:10px;color:#888;letter-spacing:.08em;margin-top:50px}
+@media(max-width:1000px){.menes-shop-layout{grid-template-columns:150px minmax(0,1fr);gap:22px}.menes-shop-products{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.menes-shop{padding:35px 4% 70px}.menes-shop-layout{display:block}.menes-shop-sidebar{position:static;flex-direction:row;align-items:center;gap:16px;margin-bottom:22px}.menes-shop-sidebar h2,.menes-shop-sidebar-bottom{display:none}.menes-shop-sidebar>a{border:0;font-size:10px;gap:5px;padding:6px 0}.menes-shop-toolbar{margin-bottom:22px}.menes-shop-tools{gap:8px}.menes-shop-tools>span{display:none}.menes-shop-products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.menes-shop-product-meta{display:block}.menes-shop-product-meta>span{display:block;margin-top:9px}.menes-shop-image{aspect-ratio:3/4}}
