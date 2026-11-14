@@ -2,6 +2,37 @@
 import Base from '../layouts/Base.astro';
 ---
 <Base title="DREAMSTATE — DROP 001"><div class="store-home">
+<style is:global>
+.ds-radio{background:#101010!important;color:#f4f4f4!important;padding:48px 5% 90px!important;overflow:hidden}
+.ds-radio-top{display:flex;justify-content:space-between;gap:16px;border-bottom:1px solid #484848;padding-bottom:16px;font-size:10px;letter-spacing:.18em}
+.ds-radio-main{display:grid;grid-template-columns:minmax(0,1fr) minmax(230px,.65fr);gap:7%;align-items:center;padding:60px 4%}
+.ds-radio-art{display:flex;align-items:center;justify-content:center}
+.ds-record{width:min(38vw,460px);aspect-ratio:1;border-radius:50%;background:repeating-radial-gradient(circle at center,#171717 0,#171717 2px,#292929 3px,#151515 4px,#111 6px);box-shadow:0 0 0 2px #333,0 30px 75px #000a,inset -20px -14px 50px #0009;display:flex;align-items:center;justify-content:center;animation:ds-vinyl-spin 9s linear infinite;position:relative}
+.ds-record:before{content:'';position:absolute;inset:9%;border:1px solid #555;border-radius:50%}
+.ds-record-label{height:35%;width:35%;border-radius:50%;background:#e8e8e8;color:#111;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-family:'Space Grotesk',sans-serif;letter-spacing:-.04em;font-size:clamp(10px,1.6vw,20px);font-weight:700}
+.ds-record-label small{font-size:clamp(5px,.65vw,9px);letter-spacing:.12em;font-weight:500}
+.ds-record-label i{width:9px;height:9px;background:#111;border-radius:50%}
+@keyframes ds-vinyl-spin{to{transform:rotate(360deg)}}
+.ds-radio-deck{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.ds-radio-deck>span{font-size:11px;color:#999;letter-spacing:.16em}
+.ds-radio-deck strong{font:600 clamp(34px,5vw,78px)/.95 'Space Grotesk',sans-serif;letter-spacing:-.065em;overflow-wrap:anywhere}
+.ds-radio-deck small{font-size:12px;letter-spacing:.13em;color:#aaa}
+.ds-radio-indicator{font-size:10px;letter-spacing:.12em;color:#999;margin-top:20px}
+.ds-radio-led{display:inline-block;width:7px;height:7px;border-radius:50%;background:#e9e9e9;margin-right:7px}
+.ds-radio-tracks{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(200px,.65fr);gap:8%;border-top:1px solid #484848;padding-top:24px}
+.ds-radio-tracklist{display:flex;flex-direction:column}
+.ds-radio .ds-track{display:grid;grid-template-columns:35px minmax(0,1fr) 145px 20px;align-items:center;gap:10px;width:100%;background:transparent;color:#bdbdbd;text-align:left;border:0;border-bottom:1px solid #353535;padding:21px 12px;cursor:pointer;transition:background .2s,color .2s}
+.ds-track>span{font-size:10px;letter-spacing:.09em}
+.ds-track strong{font-size:clamp(12px,1.35vw,17px);letter-spacing:-.02em}
+.ds-radio .ds-track:hover,.ds-radio .ds-track.active{background:#f1f1f1;color:#0c0c0c}
+.ds-radio-side{display:flex;flex-direction:column;align-items:flex-start;gap:22px;padding-top:25px}
+.ds-radio-side>span{font:600 clamp(29px,3.5vw,55px)/1 'Space Grotesk',sans-serif;letter-spacing:-.06em}
+.ds-radio-side p{font-size:13px;line-height:1.8;color:#aaa;max-width:280px}
+.ds-radio-side a{padding:16px 20px;background:#f4f4f4;color:#111;font-size:11px;letter-spacing:.08em;font-weight:700}
+.ds-radio-side small{font-size:9px;letter-spacing:.12em;color:#777}
+@media(prefers-reduced-motion:reduce){.ds-record{animation:none}}
+@media(max-width:700px){.ds-radio{padding:34px 5% 60px!important}.ds-radio-top{font-size:8px}.ds-radio-main{grid-template-columns:1fr;gap:35px;padding:48px 0}.ds-record{width:min(75vw,340px)}.ds-radio-deck strong{font-size:44px}.ds-radio-tracks{grid-template-columns:1fr;gap:25px}.ds-radio .ds-track{grid-template-columns:23px minmax(0,1fr) 70px 12px;gap:5px;padding:17px 5px}.ds-track strong{font-size:12px}.ds-track>span{font-size:8px}.ds-radio-side{padding-top:5px}}
+</style>
 <section class="store-video-hero"><video class="ds-hero-video ds-hero-desktop" autoplay muted loop playsinline preload="metadata" poster="/jeans.svg"><source src="/IMG_5082.mp4" type="video/mp4"/></video><video class="ds-hero-video ds-hero-mobile" autoplay muted loop playsinline preload="metadata" poster="/jeans.svg"><source src="/IMG_5082%20(1).mp4" type="video/mp4"/></video><div class="store-video-shade"></div><div class="store-video-copy"><span>DROP 001</span><h1>DS—001</h1><a href="#collection">EXPLORE COLLECTION ↗</a></div></section>
 <section id="collection" class="store-collection"><div class="store-section-heading"><h2>THE COLLECTION</h2><span>001 / COMING SOON</span></div><div class="store-product-grid"><a class="store-product-card" href="/shop/ds-001"><div class="store-product-image"><span class="store-card-tag">COMING SOON</span><img class="product-primary" src="/jeans.svg" alt="DS-001 concept illustration"/><img class="product-secondary" src="/jeans.svg" alt="Alternate DS-001 image placeholder"/></div><div class="store-product-details"><strong>DS—001 RELAXED BOOTCUT JEANS</strong><span>PRICE TBA</span></div><p>UNISEX / DROP 001</p></a></div><p class="store-product-note">Product photography, alternate hover image and prices will be added before launch.</p><p class="store-discount-note">REGISTERED CUSTOMERS: 15% OFF YOUR FIRST ORDER AT LAUNCH. ELIGIBILITY WILL BE VERIFIED AT CHECKOUT.</p></section>
 <section class="ds-radio" id="radio" aria-labelledby="ds-radio-title"><div class="ds-radio-top"><span>DREAMSTATE / FREQUENCY 001</span><span>CURATED LISTENING / 06 TRACKS</span></div><div class="ds-radio-main"><div class="ds-radio-art"><div class="ds-record" id="ds-record"><div class="ds-record-label"><span>DREAMSTATE</span><small>RADIO 001</small><i></i><small>33⅓ RPM</small></div></div><div class="ds-radio-deck"><span>NOW SELECTED</span><strong id="ds-radio-current">EASTER PINK</strong><small id="ds-radio-artist">FAKEMINK</small><div class="ds-radio-indicator"><span class="ds-radio-led"></span> ROTATING / SELECT A TRACK</div></div></div><div class="ds-radio-tracks"><div class="ds-radio-tracklist"><button class="ds-track active" data-track="0" aria-pressed="true"><span>01</span><strong>EASTER PINK</strong><span>FAKEMINK</span><span>↗</span></button><button class="ds-track" data-track="1" aria-pressed="false"><span>02</span><strong>NIGHT, BLOOMING JASMINE</strong><span>FAKEMINK</span><span>↗</span></button><button class="ds-track" data-track="2" aria-pressed="false"><span>03</span><strong>MUSIC AND ME</strong><span>FAKEMINK</span><span>↗</span></button><button class="ds-track" data-track="3" aria-pressed="false"><span>04</span><strong>ANGELWITHNOWINGS</strong><span>BLONDE SUPREMACY</span><span>↗</span></button><button class="ds-track" data-track="4" aria-pressed="false"><span>05</span><strong>FEVER</strong><span>FAKEMINK</span><span>↗</span></button><button class="ds-track" data-track="5" aria-pressed="false"><span>06</span><strong>MILK &amp; HONEY</strong><span>FAKEMINK</span><span>↗</span></button></div><div class="ds-radio-side"><span>THE SOUND OF<br/>DREAMSTATE.</span><p>Six tracks in rotation. Select a record to find it on your preferred streaming service.</p><a id="ds-radio-listen" href="https://open.spotify.com/search/fakemink%20Easter%20Pink" target="_blank" rel="noopener noreferrer">FIND THIS TRACK ↗</a><small>VISUAL RECORD PLAYER / NO AUDIO AUTOPLAY</small></div></div></section><section class="store-origin"><span>THE BRAND</span><h2>HOW DREAMSTATE<br/>STARTED.</h2><p>DREAMSTATE began as an independent clothing project. Our first piece is DS-001, a relaxed bootcut denim silhouette.</p><a href="/world">READ OUR STORY ↗</a></section>
