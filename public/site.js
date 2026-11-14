@@ -33,3 +33,15 @@ if(location.pathname.replace(/\/$/,'')==='/shop'&&searchQuery.trim()){
  const note=document.createElement('p');note.className='store-search-result';note.textContent=matches?'RESULTS FOR “'+searchQuery+'”':'NO PRODUCTS FOUND FOR “'+searchQuery+'”';
  document.querySelector('.store-product-grid')?.after(note);
 }
+
+
+/* DREAMSTATE RADIO — selection changes visual label and streaming search, not audio playback */
+const radioTracks=[['EASTER PINK','FAKEMINK'],['NIGHT, BLOOMING JASMINE','FAKEMINK'],['MUSIC AND ME','FAKEMINK'],['ANGELWITHNOWINGS','BLONDE SUPREMACY'],['FEVER','FAKEMINK'],['MILK & HONEY','FAKEMINK']];
+document.querySelectorAll('.ds-track').forEach(button=>button.addEventListener('click',()=>{
+ const idx=Number(button.dataset.track);const track=radioTracks[idx];if(!track)return;
+ document.querySelectorAll('.ds-track').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
+ const title=document.querySelector('#ds-radio-current');const artist=document.querySelector('#ds-radio-artist');const link=document.querySelector('#ds-radio-listen');
+ if(title)title.textContent=track[0];if(artist)artist.textContent=track[1];
+ if(link)link.href='https://open.spotify.com/search/'+encodeURIComponent(track[1]+' '+track[0]);
+ const disc=document.querySelector('#ds-record');if(disc){disc.classList.remove('ds-record-changed');void disc.offsetWidth;disc.classList.add('ds-record-changed')}
+}));
