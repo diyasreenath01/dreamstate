@@ -60,4 +60,4 @@ function dsLoadSoundCloudTrack(index){
  panel.append(frame);
 }
 document.querySelectorAll('.ds-track').forEach(b=>b.addEventListener('click',()=>dsLoadSoundCloudTrack(Number(b.dataset.track))));
-dsLoadSoundCloudTrack(0);
+/* First track player is embedded in HTML so it works even before JavaScript loads. */
