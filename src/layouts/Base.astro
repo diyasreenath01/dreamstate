@@ -35,7 +35,37 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 #ds-sound-toggle{position:fixed;right:20px;bottom:19px;z-index:9997;padding:10px 13px;background:#050505d9;color:#fff;border:1px solid #ffffff50;border-radius:0;font:600 10px/1 "Helvetica Neue",Arial,sans-serif;letter-spacing:.13em;cursor:pointer;min-width:110px;backdrop-filter:blur(7px)}
 #ds-sound-toggle:hover{background:#22254b}
 @media(max-width:650px){#ds-sound-toggle{right:12px;bottom:12px;padding:11px;font-size:9px}}
-</style></head><body class="storefront"><div id="ds-intro" style="display:none" class="ds-intro" aria-label="DREAMSTATE introduction"><div class="ds-intro-logo-wrap"><img class="ds-intro-logo" src="/DREAMSTATE%20(7).png" alt="DREAMSTATE" /></div><button id="ds-intro-enter" class="ds-intro-enter" type="button">ENTER SITE ↗</button></div>
+</style><script is:inline>
+/* Remove the opaque black background from DREAMSTATE (7) using the source pixels.
+   Applies to the intro, page transition and homepage, with a transparent PNG output. */
+(function(){
+ var path='/DREAMSTATE%20(7).png';
+ function apply(){
+  var imgs=document.querySelectorAll('.ds-intro-logo, #ds-page-transition img, .ds-landing-logo img');
+  if(!imgs.length)return;
+  var source=new Image();
+  source.onload=function(){
+   try{
+    var canvas=document.createElement('canvas');canvas.width=source.naturalWidth;canvas.height=source.naturalHeight;
+    var context=canvas.getContext('2d',{willReadFrequently:true});
+    context.drawImage(source,0,0);
+    var pixels=context.getImageData(0,0,canvas.width,canvas.height),d=pixels.data;
+    for(var i=0;i<d.length;i+=4){
+     var light=Math.max(d[i],d[i+1],d[i+2]);
+     // Extract white spray paint as alpha; preserves soft overspray and fine particles.
+     var alpha=light<12?0:Math.min(255,Math.round((light-12)*255/230));
+     d[i]=255;d[i+1]=255;d[i+2]=255;d[i+3]=Math.round(d[i+3]*alpha/255);
+    }
+    context.putImageData(pixels,0,0);
+    var transparent=canvas.toDataURL('image/png');
+    imgs.forEach(function(img){img.src=transparent;img.style.mixBlendMode='normal'});
+   }catch(e){console.warn('DREAMSTATE logo processing:',e)}
+  };
+  source.src=path;
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply();
+})();
+</script></head><body class="storefront"><div id="ds-intro" style="display:none" class="ds-intro" aria-label="DREAMSTATE introduction"><div class="ds-intro-logo-wrap"><img class="ds-intro-logo" src="/DREAMSTATE%20(7).png" alt="DREAMSTATE" /></div><button id="ds-intro-enter" class="ds-intro-enter" type="button">ENTER SITE ↗</button></div>
 <div id="ds-page-transition" aria-hidden="true"><img src="/DREAMSTATE%20(7).png" alt="" /></div>
 <button id="ds-sound-toggle" type="button" aria-label="Toggle background music" aria-pressed="false">◗ SOUND OFF</button><script src="/ds-music.js?v=3" defer></script>
 <div class="promo-ribbon">SIGN UP TO GET 15% OFF YOUR FIRST ORDER <span>— OFFER AVAILABLE WHEN CHECKOUT LAUNCHES</span></div>
