@@ -41,14 +41,18 @@ import Base from '../layouts/Base.astro';
     .ds-landing-video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;z-index:0!important;display:block!important;opacity:1!important;visibility:visible!important;pointer-events:none!important}
     .ds-landing-video-shade{position:absolute;inset:0;background:#0005;z-index:1;pointer-events:none}
     .ds-landing-center{padding:65px 20px 95px!important}
-    .ds-landing-panel{display:flex;flex-direction:column;align-items:center;width:min(90vw,420px);padding:26px 18px 29px;background:rgba(5,5,5,.74);border:1px solid #ffffff35;box-shadow:0 24px 70px #0008}
-    .ds-landing-logo{width:min(100%,370px)!important;margin-bottom:13px!important;animation:ds-home-logo-spin 1.6s linear infinite!important;transform-style:preserve-3d;will-change:transform}
-    .ds-landing-clock{margin-bottom:23px!important}
+    .ds-landing-panel{display:flex;flex-direction:column;align-items:center;width:min(90vw,420px);padding:16px 18px 25px;background:rgba(5,5,5,.74);border:1px solid #ffffff35;box-shadow:0 24px 70px #0008}
+    .ds-landing-logo{width:min(100%,370px)!important;margin-bottom:4px!important;animation:ds-home-logo-spin 1.6s linear infinite!important;transform-style:preserve-3d;will-change:transform}
+    .ds-landing-clock{margin-bottom:17px!important}
     .ds-landing-menu{gap:13px!important}
     .ds-landing-bottom{z-index:3!important}
+    /* Keep the entire logo/clock/menu group optically centered and remove unused top space. */
+    .ds-landing-center{padding:20px 20px 20px!important;min-height:100svh;justify-content:center!important}
+    .ds-landing-panel{justify-content:center;gap:0}
+    .ds-landing-logo{margin-top:-10px!important}
     @keyframes ds-home-logo-spin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
     @media(prefers-reduced-motion:reduce){.ds-landing-logo{animation:none!important}}
-    @media(max-width:650px){.ds-landing-panel{width:min(90vw,370px);padding:24px 16px 27px}.ds-landing-logo{width:min(100%,340px)!important}}
+    @media(max-width:650px){.ds-landing-panel{width:min(90vw,370px);padding:14px 16px 24px}.ds-landing-logo{width:min(100%,340px)!important}}
   </style>
   <script is:inline>
     (function(){var clock=document.getElementById('ds-landing-clock');if(!clock)return;function tick(){clock.textContent=new Intl.DateTimeFormat('en-US',{month:'2-digit',day:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date())}tick();setInterval(tick,30000)})();
