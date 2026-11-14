@@ -17,7 +17,8 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 @keyframes ds-orbit{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){#ds-intro .ds-intro-orbit{animation:none!important}}
 </style><style is:global>
-#ds-intro{background:#050505!important}\n#ds-intro::before,#ds-intro::after{content:none!important;display:none!important}
+#ds-intro{background:#050505!important}
+#ds-intro::before,#ds-intro::after{content:none!important;display:none!important}
 #ds-intro .ds-intro-logo-wrap{position:relative!important;width:min(54vw,510px)!important;display:grid!important;place-items:center!important;perspective:1000px!important;animation:ds-logo-spin 1.35s linear infinite!important}
 #ds-intro .ds-intro-logo{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;mix-blend-mode:screen!important;filter:drop-shadow(0 0 8px #00dfff55)!important}
 #ds-intro .ds-intro-enter{bottom:8%!important}
@@ -27,7 +28,7 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 </style><style is:global>
 #ds-page-transition{position:fixed;inset:0;z-index:99998;display:grid;place-items:center;background:#050505;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility .18s ease}
 #ds-page-transition.is-visible{opacity:1;visibility:visible;pointer-events:all}
-#ds-page-transition img{width:min(44vw,370px);height:auto;object-fit:contain;animation:ds-logo-spin .85s linear infinite;filter:drop-shadow(0 0 6px #00dfff55)}
+#ds-page-transition img{mix-blend-mode:screen;width:min(44vw,370px);height:auto;object-fit:contain;animation:ds-logo-spin .85s linear infinite;filter:drop-shadow(0 0 6px #00dfff55)}
 @media(max-width:650px){#ds-page-transition img{width:min(76vw,300px)}}
 @media(prefers-reduced-motion:reduce){#ds-page-transition img{animation:none}}
 </style><style is:global>
