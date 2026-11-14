@@ -4,8 +4,7 @@ import Base from '../layouts/Base.astro';
 <Base title="DREAMSTATE — ENTER">
   <div class="ds-landing">
     <video class="ds-landing-video ds-hero-video" autoplay muted loop playsinline preload="metadata"><source src="/IMG_5082.mp4" type="video/mp4" /></video><div class="ds-landing-video-shade" aria-hidden="true"></div>
-    <main class="ds-landing-center"><div class="ds-landing-panel">
-      <a class="ds-landing-logo" href="/shop" aria-label="DREAMSTATE — shop collection"><img src="/DREAMSTATE%20(7).png" alt="DREAMSTATE" /></a>
+    <main class="ds-landing-center"><a class="ds-landing-logo" href="/shop" aria-label="DREAMSTATE — shop collection"><img src="/DREAMSTATE%20(7).png" alt="DREAMSTATE" /></a><div class="ds-landing-panel">
       <time id="ds-landing-clock" class="ds-landing-clock"></time>
       <nav class="ds-landing-menu" aria-label="Explore DREAMSTATE">
         <a href="/shop">SHOP ALL</a>
@@ -50,6 +49,11 @@ import Base from '../layouts/Base.astro';
     .ds-landing-center{padding:20px 20px 20px!important;min-height:100svh;justify-content:center!important}
     .ds-landing-panel{justify-content:center;gap:0}
     .ds-landing-logo{margin-top:-10px!important}
+    /* Logo floats above the box; only the clock and navigation live in the box. */
+    .ds-landing-center{gap:18px!important}
+    .ds-landing-logo{width:min(52vw,260px)!important;max-width:260px!important;margin:0!important;flex-shrink:0;position:relative;z-index:3}
+    .ds-landing-panel{width:min(88vw,330px)!important;padding:24px 24px 27px!important;min-height:0!important}
+    @media(max-width:650px){.ds-landing-center{gap:14px!important}.ds-landing-logo{width:min(65vw,230px)!important}.ds-landing-panel{width:min(86vw,310px)!important;padding:22px 18px 25px!important}}
     @keyframes ds-home-logo-spin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}
     @media(prefers-reduced-motion:reduce){.ds-landing-logo{animation:none!important}}
     @media(max-width:650px){.ds-landing-panel{width:min(90vw,370px);padding:14px 16px 24px}.ds-landing-logo{width:min(100%,340px)!important}}
