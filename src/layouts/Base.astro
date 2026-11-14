@@ -2,7 +2,7 @@
 const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Explore DS-001 denim.' } = Astro.props;
 ---
 <!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="theme-color" content="#22254b"/><meta name="description" content={description}/><title>{title}</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/><link rel="stylesheet" href="/style.css?v=20261114-logo006"/><style is:global>
-#ds-intro{position:fixed!important;inset:0!important;z-index:99999!important;display:grid!important;place-items:center!important;overflow:hidden!important;background:#22254b!important;color:white!important;isolation:isolate;transition:opacity .8s ease,visibility .8s ease}
+#ds-intro{position:fixed!important;inset:0!important;z-index:99999!important;display:grid!important;place-items:center!important;overflow:hidden!important;background:#050505!important;color:white!important;isolation:isolate;transition:opacity .8s ease,visibility .8s ease}
 #ds-intro.is-exiting{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 #ds-intro .ds-intro-orbit{position:absolute!important;width:min(72vw,72vh,680px)!important;aspect-ratio:1!important;animation:ds-orbit 13s linear infinite!important}
 #ds-intro .ds-intro-ring{position:absolute!important;inset:0!important;border:1px solid #ffffff85!important;border-radius:50%!important;display:block!important}
@@ -17,7 +17,7 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 @keyframes ds-orbit{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){#ds-intro .ds-intro-orbit{animation:none!important}}
 </style><style is:global>
-#ds-intro{background:#28058e!important}\n#ds-intro::before,#ds-intro::after{content:none!important;display:none!important}
+#ds-intro{background:#050505!important}\n#ds-intro::before,#ds-intro::after{content:none!important;display:none!important}
 #ds-intro .ds-intro-logo-wrap{position:relative!important;width:min(42vw,400px)!important;display:grid!important;place-items:center!important;perspective:1000px!important;animation:ds-logo-spin 1.35s linear infinite!important}
 #ds-intro .ds-intro-logo{display:block!important;width:100%!important;height:auto!important;object-fit:contain!important;mix-blend-mode:screen!important;filter:drop-shadow(0 0 8px #00dfff55)!important}
 #ds-intro .ds-intro-enter{bottom:8%!important}
@@ -25,7 +25,7 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 @media(max-width:650px){#ds-intro .ds-intro-logo-wrap{width:min(76vw,330px)!important}}
 @media(prefers-reduced-motion:reduce){#ds-intro .ds-intro-logo-wrap{animation:none!important}}
 </style><style is:global>
-#ds-page-transition{position:fixed;inset:0;z-index:99998;display:grid;place-items:center;background:#28058e;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility .18s ease}
+#ds-page-transition{position:fixed;inset:0;z-index:99998;display:grid;place-items:center;background:#050505;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,visibility .18s ease}
 #ds-page-transition.is-visible{opacity:1;visibility:visible;pointer-events:all}
 #ds-page-transition img{width:min(34vw,280px);height:auto;object-fit:contain;animation:ds-logo-spin .85s linear infinite;filter:drop-shadow(0 0 6px #00dfff55)}
 @media(max-width:650px){#ds-page-transition img{width:min(60vw,230px)}}
@@ -36,7 +36,8 @@ const { title = 'DREAMSTATE', description = 'DREAMSTATE independent clothing. Ex
 @media(max-width:650px){#ds-sound-toggle{right:12px;bottom:12px;padding:11px;font-size:9px}}
 </style></head><body class="storefront"><div id="ds-intro" style="display:none" class="ds-intro" aria-label="DREAMSTATE introduction"><div class="ds-intro-logo-wrap"><img class="ds-intro-logo" src="/dreamstate-spray-logo.png" alt="DREAMSTATE" /></div><button id="ds-intro-enter" class="ds-intro-enter" type="button">ENTER SITE ↗</button></div>
 <div id="ds-page-transition" aria-hidden="true"><img src="/dreamstate-spray-logo.png" alt="" /></div>
-<button id="ds-sound-toggle" type="button" aria-label="Toggle background music" aria-pressed="false">◗ SOUND OFF</button><script src="/ds-music.js?v=1" defer></script>\n<div class="promo-ribbon">SIGN UP TO GET 15% OFF YOUR FIRST ORDER <span>— OFFER AVAILABLE WHEN CHECKOUT LAUNCHES</span></div>
+<button id="ds-sound-toggle" type="button" aria-label="Toggle background music" aria-pressed="false">◗ SOUND OFF</button><script src="/ds-music.js?v=2" defer></script>
+<div class="promo-ribbon">SIGN UP TO GET 15% OFF YOUR FIRST ORDER <span>— OFFER AVAILABLE WHEN CHECKOUT LAUNCHES</span></div>
 <header class="store-header"><div class="store-header-left"><form class="store-search" action="/shop" method="get" role="search"><input type="search" name="q" id="store-search-input" placeholder="SEARCH" aria-label="Search products"/><button type="submit" aria-label="Search">⌕</button></form><button class="store-menu" id="menu-toggle" aria-label="Toggle navigation">☰</button><nav id="nav-links"><a href="/shop">SHOP</a><a href="/archive">ARCHIVE</a><a href="/world">ABOUT</a></nav></div><a class="store-logo" href="/" aria-label="DREAMSTATE home"><img src="/DREAMSTATE%20(6).png" alt="DREAMSTATE" /></a><div class="store-actions"><button id="cart-trigger" aria-label="Open shopping bag">BAG <span id="cart-count">(0)</span></button><label class="sr-only" for="store-language">Language</label><select id="store-language" aria-label="Language"><option value="en">EN</option></select><label class="sr-only" for="store-currency">Currency</label><select id="store-currency" aria-label="Currency"><option value="AED">AED</option><option value="USD">USD</option><option value="GBP">GBP</option><option value="EUR">EUR</option></select></div></header>
 <script is:inline>
 (function(){var el=document.getElementById('ds-intro');if(!el)return;var seen=false;try{seen=sessionStorage.getItem('ds-intro-seen')==='1'}catch(e){}if(location.pathname!=='/'||location.hash||seen||matchMedia('(prefers-reduced-motion: reduce)').matches){el.remove();return}el.style.display='grid';document.body.style.overflow='hidden';var done=false;function close(){if(done)return;done=true;try{sessionStorage.setItem('ds-intro-seen','1')}catch(e){}el.classList.add('is-exiting');document.body.style.overflow='';setTimeout(function(){el.remove()},850)}el.querySelector('#ds-intro-enter').addEventListener('click',close);setTimeout(close,4200)})();
