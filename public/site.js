@@ -42,6 +42,22 @@ document.querySelectorAll('.ds-track').forEach(button=>button.addEventListener('
  document.querySelectorAll('.ds-track').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active))});
  const title=document.querySelector('#ds-radio-current');const artist=document.querySelector('#ds-radio-artist');const link=document.querySelector('#ds-radio-listen');
  if(title)title.textContent=track[0];if(artist)artist.textContent=track[1];
- if(link)link.href='https://open.spotify.com/search/'+encodeURIComponent(track[1]+' '+track[0]);
+ if(link)link.href='https://soundcloud.com/search/sounds?q='+encodeURIComponent(track[1]+' '+track[0]);
  const disc=document.querySelector('#ds-record');if(disc){disc.classList.remove('ds-record-changed');void disc.offsetWidth;disc.classList.add('ds-record-changed')}
 }));
+
+/* Official SoundCloud playback. Only use artist-approved, verified track URLs. */
+const dsSoundCloudUrls=[null,null,null,null,null,null];
+function dsLoadSoundCloudTrack(index){
+ const panel=document.querySelector('#ds-sc-player');if(!panel)return;
+ panel.replaceChildren();
+ const url=dsSoundCloudUrls[index];
+ if(!url){const p=document.createElement('p');p.textContent='Official SoundCloud upload not linked yet. Use “Find on SoundCloud” to look for this track.';panel.append(p);return}
+ const frame=document.createElement('iframe');
+ frame.title='SoundCloud official track player';frame.loading='lazy';frame.allow='autoplay';
+ frame.referrerPolicy='strict-origin-when-cross-origin';
+ frame.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(url)+'&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&visual=false';
+ panel.append(frame);
+}
+document.querySelectorAll('.ds-track').forEach(b=>b.addEventListener('click',()=>dsLoadSoundCloudTrack(Number(b.dataset.track))));
+dsLoadSoundCloudTrack(0);
