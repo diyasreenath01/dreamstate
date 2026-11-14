@@ -3,8 +3,8 @@ import Base from '../layouts/Base.astro';
 ---
 <Base title="DREAMSTATE — ENTER">
   <div class="ds-landing">
-    <div class="ds-landing-grain" aria-hidden="true"></div>
-    <main class="ds-landing-center">
+    <video class="ds-landing-video ds-hero-video" autoplay muted loop playsinline preload="metadata"><source src="/IMG_5082.mp4" type="video/mp4" /></video><div class="ds-landing-video-shade" aria-hidden="true"></div>
+    <main class="ds-landing-center"><div class="ds-landing-panel">
       <a class="ds-landing-logo" href="/shop" aria-label="DREAMSTATE — shop collection"><img src="/6aff3369-24c4-4afb-91c3-5d01452daf59_removalai_preview.png" alt="DREAMSTATE" /></a>
       <time id="ds-landing-clock" class="ds-landing-clock"></time>
       <nav class="ds-landing-menu" aria-label="Explore DREAMSTATE">
@@ -12,7 +12,7 @@ import Base from '../layouts/Base.astro';
         <a href="/archive">ARCHIVE</a>
         <a href="/world">ABOUT US</a>
         <a href="/contact">CONTACT US</a>
-      </nav>
+      </nav></div>
     </main>
     <div class="ds-landing-bottom"><span>DS / 001</span><a href="/shop">EXPLORE COLLECTION ↗</a><span>INDEPENDENT CLOTHING</span></div>
   </div>
@@ -34,6 +34,18 @@ import Base from '../layouts/Base.astro';
     .ds-landing-bottom{position:absolute;bottom:26px;left:5%;right:5%;display:flex;align-items:center;justify-content:space-between;gap:12px;font:500 9px/1.3 monospace;letter-spacing:.13em;color:#a6a6ac}
     .ds-landing-bottom a{color:#fff}
     @media(max-width:650px){.ds-landing-logo{width:min(75vw,350px);margin-bottom:24px}.ds-landing-center{padding:70px 16px 110px}.ds-landing-clock{margin-bottom:38px}.ds-landing-menu{gap:22px}.ds-landing-bottom{font-size:8px}.ds-landing-bottom span:last-child{display:none}}
+
+    /* Full-screen film with a single black navigation panel */
+    .ds-landing{background:#050505!important}
+    .ds-landing::before{display:none!important}
+    .ds-landing-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+    .ds-landing-video-shade{position:absolute;inset:0;background:#0007;z-index:-1;pointer-events:none}
+    .ds-landing-center{padding:65px 20px 95px!important}
+    .ds-landing-panel{display:flex;flex-direction:column;align-items:center;width:min(90vw,520px);padding:48px 45px 53px;background:#050505eb;border:1px solid #ffffff24;box-shadow:0 24px 70px #0008}
+    .ds-landing-logo{width:min(100%,360px)!important;margin-bottom:21px!important}
+    .ds-landing-clock{margin-bottom:35px!important}
+    .ds-landing-menu{gap:18px!important}
+    @media(max-width:650px){.ds-landing-panel{width:min(90vw,420px);padding:38px 24px 45px}.ds-landing-logo{width:min(100%,300px)!important}}
   </style>
   <script is:inline>
     (function(){var clock=document.getElementById('ds-landing-clock');if(!clock)return;function tick(){clock.textContent=new Intl.DateTimeFormat('en-US',{month:'2-digit',day:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date())}tick();setInterval(tick,30000)})();
