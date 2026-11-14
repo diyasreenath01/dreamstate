@@ -455,3 +455,36 @@ html body.storefront,html body.storefront button,html body.storefront input,html
 html body.storefront h1,html body.storefront h2,html body.storefront h3,html body.storefront h4,html body.storefront h5,html body.storefront h6,html body.storefront .ds-radio-deck strong,html body.storefront .ds-radio-side>span,html body.storefront .store-footer h2{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;font-weight:600!important;letter-spacing:-.035em!important}
 html body.storefront .store-header nav a,html body.storefront .store-actions button,html body.storefront .store-actions select,html body.storefront .store-section-heading span,html body.storefront .store-product-details,html body.storefront .ds-track,html body.storefront .store-video-copy a{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif!important;font-weight:500!important;letter-spacing:.035em!important}
 html body.storefront .store-logo img{font-family:initial!important}
+
+/* DREAMSTATE / 2026 — immersive entry and editorial storefront */
+.ds-intro{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;overflow:hidden;background:#22254b;color:#fff;isolation:isolate;transition:opacity .85s cubic-bezier(.22,1,.36,1),visibility .85s}
+.ds-intro::before{content:"";position:absolute;inset:0;opacity:.17;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff1 4px 5px);pointer-events:none}
+.ds-intro::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at center,transparent 8%,#0b0d2a70 90%);pointer-events:none}
+.ds-intro.is-exiting{opacity:0;visibility:hidden;pointer-events:none}
+.ds-intro-orbit{width:min(67vw,67vh,690px);aspect-ratio:1;position:absolute;display:grid;place-items:center;animation:ds-intro-spin 13s linear infinite;transform-origin:center}
+.ds-intro-ring{position:absolute;border:1px solid #fff8;border-radius:50%;width:100%;height:100%;box-shadow:0 0 35px #fff1,inset 0 0 30px #fff1}
+.ds-intro-ring-one{transform:rotateX(65deg) rotateY(-22deg)}
+.ds-intro-ring-two{transform:rotateY(65deg) rotateZ(45deg)}
+.ds-intro-ring-three{width:79%;height:79%;transform:rotateX(45deg) rotateZ(-35deg);border-color:#ffffff55}
+.ds-intro-orbit::before,.ds-intro-orbit::after{content:"";position:absolute;width:9px;height:9px;background:#fff;border-radius:50%;top:4%;left:50%;box-shadow:0 0 24px #fff}
+.ds-intro-orbit::after{top:auto;bottom:4%;left:38%;width:5px;height:5px}
+.ds-intro-center{position:relative;z-index:2;text-align:center;display:flex;flex-direction:column;align-items:center;gap:21px}
+.ds-intro-word{font:600 clamp(33px,7.4vw,112px)/1 "Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:-.09em;white-space:nowrap;transform:translateX(-.04em)}
+.ds-intro-small{font-size:9px;letter-spacing:.3em;font-weight:500}
+.ds-intro-enter{position:absolute;z-index:4;bottom:9%;left:50%;transform:translateX(-50%);padding:17px 25px;border:1px solid #fff9;background:transparent;color:#fff;letter-spacing:.18em;font-size:10px;min-width:175px;display:flex;justify-content:space-between;gap:20px;transition:background .2s,color .2s}
+.ds-intro-enter:hover,.ds-intro-enter:focus-visible{background:#fff;color:#22254b}
+.ds-intro-counter{position:absolute;bottom:5%;left:5%;font-size:9px;letter-spacing:.2em;color:#fffa}
+@keyframes ds-intro-spin{to{transform:rotate(360deg)}}
+body.ds-intro-active{overflow:hidden}
+body.storefront .store-header{height:78px!important;border-bottom:1px solid #ffffff20!important}
+body.storefront .store-header-left nav{gap:24px!important}
+body.storefront .store-header-left nav a{font-size:10px!important;letter-spacing:.12em!important}
+body.storefront .store-video-hero{height:calc(100svh - 112px);min-height:500px}
+body.storefront .store-video-copy a{font-size:10px!important;letter-spacing:.17em!important}
+body.storefront .store-collection{padding-top:105px!important;padding-bottom:110px!important}
+body.storefront .store-section-heading h2{font-size:clamp(24px,3vw,44px)!important;font-weight:500!important;letter-spacing:-.055em!important}
+body.storefront .store-origin{padding-top:110px!important;padding-bottom:115px!important}
+body.storefront .store-origin h2{font-weight:500!important}
+body.storefront .store-footer{padding-top:80px!important}
+@media(max-width:650px){.ds-intro-orbit{width:95vw}.ds-intro-word{font-size:clamp(29px,9vw,54px)}.ds-intro-small{font-size:8px}.ds-intro-enter{bottom:12%}body.storefront .store-video-hero{min-height:480px;height:78svh}body.storefront .store-collection{padding-top:65px!important;padding-bottom:70px!important}}
+@media(prefers-reduced-motion:reduce){.ds-intro-orbit{animation:none}.ds-intro{transition:none}}
