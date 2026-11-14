@@ -175,3 +175,30 @@ body:has(.ds-home) .wordmark{font-weight:700;letter-spacing:-.085em}
 .ds-video-cover.video-ready .ds-cover-art{opacity:0}
 .ds-video-cover .ds-cover-info{z-index:2;background:linear-gradient(90deg,#0008,transparent 75%),linear-gradient(0deg,#0008,transparent 45%)}
 @media(prefers-reduced-motion:reduce){.ds-video-cover .ds-hero-video{display:none!important}.ds-video-cover .ds-cover-art{opacity:1!important}}
+
+
+/* DREAMSTATE black-and-white cinematic treatment */
+body:has(.ds-home){background:#080808;color:#fff}
+body:has(.ds-home) .ds-overlay-nav{position:absolute;z-index:50;left:0;right:0;top:0;background:transparent!important;border:0!important;color:#fff!important;height:84px;padding-left:5%;padding-right:5%;transition:background .25s ease,backdrop-filter .25s ease}
+body:has(.ds-home) .ds-overlay-nav:hover,body:has(.ds-home) .ds-overlay-nav:focus-within{background:#080808d9!important;backdrop-filter:blur(12px)}
+body:has(.ds-home) .ds-overlay-nav a,body:has(.ds-home) .ds-overlay-nav button{color:#fff!important}
+body:has(.ds-home) .ds-overlay-nav nav a{font-size:12px;letter-spacing:.17em;font-weight:700}
+body:has(.ds-home) .ds-overlay-nav nav a:hover{opacity:.65}
+body:has(.ds-home) .ds-overlay-nav .wordmark{font-size:23px;color:#fff!important}
+body:has(.ds-home) .ds-cover{background:#111;min-height:100svh}
+body:has(.ds-home) .ds-cover-info{min-height:100svh;background:linear-gradient(180deg,#0006 0%,transparent 33%,#0008 100%);padding-top:120px}
+body:has(.ds-home) .ds-cover-info .ds-hero-logo{font-size:clamp(65px,11.8vw,190px);color:#fff;text-shadow:0 6px 35px #0007}
+body:has(.ds-home) .ds-cover-art{filter:grayscale(1);background:radial-gradient(ellipse at 55% 40%,#777,#282828 60%,#080808)}
+body:has(.ds-home) .ds-cover-bottom a{background:#fff;color:#000}
+body:has(.ds-home) .ds-cover-bottom a:hover{background:#ddd}
+body:has(.ds-home) .ds-index{background:#f4f4f4;color:#111}
+body:has(.ds-home) .ds-index-image{background:#999;filter:grayscale(1)}
+body:has(.ds-home) .ds-index-copy{background:#e1e1e1}
+body:has(.ds-home) .ds-statement{background:#0b0b0b;color:#fff}
+body:has(.ds-home) .ds-statement>span{color:#aaa}
+body:has(.ds-home) .ds-signup{background:#161616;color:#fff}
+body:has(.ds-home) .ds-signup>span,body:has(.ds-home) .ds-signup p{color:#aaa}
+body:has(.ds-home) .ds-signup button{background:#fff;color:#000}
+body:has(.ds-home) footer{background:#0b0b0b;color:#fff}
+body:has(.ds-home) footer .eyebrow{color:#aaa}
+@media(max-width:750px){body:has(.ds-home) .ds-overlay-nav{height:68px;padding:0 4%}body:has(.ds-home) .ds-overlay-nav .wordmark{font-size:18px}body:has(.ds-home) .ds-overlay-nav nav{background:#111;color:#fff}body:has(.ds-home) .ds-cover-info{padding-top:105px}body:has(.ds-home) .ds-cover-info .ds-hero-logo{font-size:13vw}}
