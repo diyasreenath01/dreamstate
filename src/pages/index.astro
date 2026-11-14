@@ -25,7 +25,7 @@ import Base from '../layouts/Base.astro';
     .ds-landing-grain{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,#ffffff03 0 1px,transparent 1px 4px);opacity:.4}
     .ds-landing-center{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;padding:90px 24px 110px;gap:0}
     .ds-landing-logo{display:block;width:min(40vw,430px);max-width:90%;margin-bottom:28px;transition:transform .3s ease,filter .3s ease}
-    .ds-landing-logo:hover{transform:scale(1.045);filter:drop-shadow(0 0 16px #19dfff55)}
+    .ds-landing-logo:hover{filter:drop-shadow(0 0 16px #19dfff55)}
     .ds-landing-logo img{display:block;width:100%;height:auto;object-fit:contain}
     .ds-landing-clock{font:500 10px/1.5 monospace;letter-spacing:.09em;color:#fff;margin-bottom:44px}
     .ds-landing-menu{display:flex;flex-direction:column;align-items:center;gap:18px}
@@ -41,11 +41,13 @@ import Base from '../layouts/Base.astro';
     .ds-landing-video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;z-index:0!important;display:block!important;opacity:1!important;visibility:visible!important;pointer-events:none!important}
     .ds-landing-video-shade{position:absolute;inset:0;background:#0005;z-index:1;pointer-events:none}
     .ds-landing-center{padding:65px 20px 95px!important}
-    .ds-landing-panel{display:flex;flex-direction:column;align-items:center;width:min(88vw,410px);padding:28px 30px 32px;background:rgba(5,5,5,.74);border:1px solid #ffffff35;box-shadow:0 24px 70px #0008}
-    .ds-landing-logo{width:min(100%,360px)!important;margin-bottom:13px!important;animation:ds-home-logo-spin 3s linear infinite;transform-style:preserve-3d;will-change:transform}
+    .ds-landing-panel{display:flex;flex-direction:column;align-items:center;width:min(86vw,335px);padding:26px 18px 29px;background:rgba(5,5,5,.74);border:1px solid #ffffff35;box-shadow:0 24px 70px #0008}
+    .ds-landing-logo{width:min(100%,280px)!important;margin-bottom:13px!important;animation:ds-home-logo-spin 1.6s linear infinite!important;transform-style:preserve-3d;will-change:transform}
     .ds-landing-clock{margin-bottom:23px!important}
-    .ds-landing-menu{gap:13px!important}\n    .ds-landing-bottom{z-index:3!important}\n    @keyframes ds-home-logo-spin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}\n    @media(prefers-reduced-motion:reduce){.ds-landing-logo{animation:none!important}}
-    @media(max-width:650px){.ds-landing-panel{width:min(86vw,350px);padding:25px 20px 29px}.ds-landing-logo{width:min(100%,300px)!important}}
+    .ds-landing-menu{gap:13px!important}
+    .ds-landing-bottom{z-index:3!important}
+    @keyframes ds-home-logo-spin{from{transform:rotateY(0deg)}to{transform:rotateY(360deg)}}\n    @media(prefers-reduced-motion:reduce){.ds-landing-logo{animation:none!important}}
+    @media(max-width:650px){.ds-landing-panel{width:min(84vw,310px);padding:24px 16px 27px}.ds-landing-logo{width:min(100%,300px)!important}}
   </style>
   <script is:inline>
     (function(){var clock=document.getElementById('ds-landing-clock');if(!clock)return;function tick(){clock.textContent=new Intl.DateTimeFormat('en-US',{month:'2-digit',day:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:true}).format(new Date())}tick();setInterval(tick,30000)})();
