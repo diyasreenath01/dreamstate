@@ -1,4 +1,53 @@
 ---
 import Base from '../../layouts/Base.astro';
 ---
-<Base title="DS-001 Relaxed Bootcut Jeans — DREAMSTATE"><section class="store-product-page"><div class="store-product-controls"><span class="eyebrow">DREAMSTATE / DROP 001</span><h1>DS—001 RELAXED BOOTCUT JEANS</h1><div class="store-price">PRICE TO BE ANNOUNCED</div><p class="store-discount-line">15% off first order for eligible registered customers when checkout launches.</p><div class="store-product-field"><div class="store-field-heading"><strong>SIZE</strong><button type="button" data-info="size">SIZE GUIDE ↗</button></div><div class="size-list"><button data-size="XS">XS</button><button data-size="S">S</button><button data-size="M" class="active">M</button><button data-size="L">L</button><button data-size="XL">XL</button></div></div><div class="store-product-field"><label for="quantity">QUANTITY</label><input id="quantity" type="number" min="1" max="10" value="1"/></div><button id="add-bag" class="store-add-button">ADD TO PREVIEW BAG ↗</button><p class="store-preview-warning">This is a preview only. No purchase or reservation is created.</p><div class="store-accordion"><button type="button" data-info="description">DESCRIPTION <span>+</span></button><button type="button" data-info="delivery">DELIVERY <span>+</span></button><button type="button" data-info="payment">PAYMENT <span>+</span></button><button type="button" data-info="help">HELP <span>+</span></button></div></div><div class="store-product-gallery"><div><img src="/jeans.svg" alt="DS-001 jeans concept illustration"/></div><div><img src="/jeans.svg" alt="Alternate view placeholder of DS-001 jeans"/></div><p>Concept illustrations only. Actual front and back photos are pending.</p></div></section><dialog id="product-info-dialog" class="store-info-dialog"><div class="bag-head"><strong id="product-info-title">PRODUCT INFORMATION</strong><button id="product-info-close" aria-label="Close information">✕</button></div><div id="product-info-content"></div></dialog></Base>
+<Base title="DS-001 Relaxed Bootcut Jeans — DREAMSTATE">
+<section class="store-product-page">
+  <div class="store-product-controls">
+    <span class="eyebrow">DREAMSTATE / DROP 001</span>
+    <h1>DS—001 RELAXED BOOTCUT JEANS</h1>
+    <div class="store-price">PRICE TO BE ANNOUNCED</div>
+    <p class="store-discount-line">15% off first order for eligible registered customers when checkout launches.</p>
+    <div class="store-product-field"><div class="store-field-heading"><strong>SIZE</strong><button type="button" data-info="size">SIZE GUIDE ↗</button></div><div class="size-list"><button data-size="XS">XS</button><button data-size="S">S</button><button data-size="M" class="active">M</button><button data-size="L">L</button><button data-size="XL">XL</button></div></div>
+    <div class="store-product-field"><label for="quantity">QUANTITY</label><input id="quantity" type="number" min="1" max="10" value="1"/></div>
+    <button id="add-bag" class="store-add-button">ADD TO PREVIEW BAG ↗</button>
+    <p class="store-preview-warning">This is a preview only. No purchase or reservation is created.</p>
+    <div class="store-accordion"><button type="button" data-info="description">DESCRIPTION <span>+</span></button><button type="button" data-info="delivery">DELIVERY <span>+</span></button><button type="button" data-info="payment">PAYMENT <span>+</span></button><button type="button" data-info="help">HELP <span>+</span></button></div>
+  </div>
+  <div class="store-product-gallery">
+    <div class="ds-reveal" id="ds-reveal" aria-label="Interactive DS-001 concept reveal">
+      <span class="ds-reveal-kicker">DS—001 / DESIGN STUDY</span>
+      <div class="ds-reveal-stage">
+        <div class="ds-reveal-image" id="ds-reveal-image"><img src="/jeans.svg" alt="DS-001 concept illustration, not a finished product photograph" /></div>
+        <span class="ds-reveal-index" id="ds-reveal-index">01 / 03</span>
+      </div>
+      <div class="ds-reveal-copy" aria-live="polite"><strong id="ds-reveal-heading">THE SILHOUETTE</strong><p id="ds-reveal-description">A closer look at the relaxed bootcut concept.</p></div>
+      <label class="ds-reveal-slider-label" for="ds-reveal-slider">EXPLORE THE DESIGN <span>DRAG TO REVEAL ↔</span></label>
+      <input id="ds-reveal-slider" type="range" min="0" max="2" step="1" value="0" aria-label="Explore silhouette, construction, and details of DS-001" />
+      <div class="ds-reveal-marks" aria-hidden="true"><span>SILHOUETTE</span><span>CONSTRUCTION</span><span>DETAILS</span></div>
+    </div>
+    <p>Concept illustrations only. Actual front and back photos are pending. The interactive views are artistic studies, not verified product photography.</p>
+  </div>
+</section>
+<dialog id="product-info-dialog" class="store-info-dialog"><div class="bag-head"><strong id="product-info-title">PRODUCT INFORMATION</strong><button id="product-info-close" aria-label="Close information">✕</button></div><div id="product-info-content"></div></dialog>
+<script>
+  const slider = document.getElementById('ds-reveal-slider');
+  const visual = document.getElementById('ds-reveal-image');
+  const heading = document.getElementById('ds-reveal-heading');
+  const description = document.getElementById('ds-reveal-description');
+  const counter = document.getElementById('ds-reveal-index');
+  const stages = [
+    ['THE SILHOUETTE','A closer look at the relaxed bootcut concept.'],
+    ['THE CONSTRUCTION','Explore the proportions and the movement of the lower leg.'],
+    ['THE DETAILS','A closer study of the design. Final pocket and waistband photography is pending.']
+  ];
+  function updateReveal() {
+    const i = Number(slider.value);
+    heading.textContent = stages[i][0]; description.textContent = stages[i][1];
+    counter.textContent = String(i+1).padStart(2,'0')+' / 03';
+    visual.dataset.phase = String(i);
+  }
+  slider?.addEventListener('input',updateReveal);
+  updateReveal();
+</script>
+</Base>
